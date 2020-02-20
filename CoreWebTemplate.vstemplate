@@ -1,0 +1,17 @@
+<VSTemplate Version="2.0.0" Type="Project"
+    xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">>
+    <TemplateData>
+        <Name>Core Web Template</Name>
+        <Description>logchan's .Net Core web application template.</Description>
+        <ProjectType>CSharp</ProjectType>
+        <DefaultName>CoreWebsite</DefaultName>
+        <CreateInPlace>true</CreateInPlace>
+    </TemplateData>
+    <TemplateContent>
+        <Project File="CoreWebTemplate.csproj"
+                 TargetFileName="$safeprojectname$.csproj"
+                 ReplaceParameters="true">
+#items#
+        </Project>
+    </TemplateContent>
+</VSTemplate>
