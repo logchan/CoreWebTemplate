@@ -11,7 +11,6 @@ mkdir $build_dir | Out-Null
 $project_root = (Get-Item -Path $project_dir).FullName
 $build_root = (Get-Item -Path $build_dir).FullName
 Write-Host $build_root
-$null = mkdir $build_root\wwwroot
 foreach ($f in Get-ChildItem $project_dir\* -Recurse -Exclude bin, obj, *.user) {
     if ($f.GetType() -eq [System.IO.DirectoryInfo]) {
         continue

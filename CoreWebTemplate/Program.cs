@@ -63,11 +63,16 @@ namespace CoreWebTemplate {
 
                 InitializeServer();
 
+                var ip = IPAddress.Loopback;
+                if (!String.IsNullOrEmpty(HostingConfig.Ip)) {
+                    ip = IPAddress.Parse(HostingConfig.Ip);
+                }
+
                 webHostBuilder = WebHost.CreateDefaultBuilder(args)
                     .ConfigureLogging(builder => builder.ClearProviders())
                     .UseStartup<Startup>()
                     .UseKestrel(opt => {
-                        opt.Listen(IPAddress.Loopback, HostingConfig.Port);
+                        opt.Listen(ip, HostingConfig.Port);
                         opt.Limits.MaxRequestBodySize = HostingConfig.MaxRequestBodySize;
                     });
             });
